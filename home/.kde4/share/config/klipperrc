@@ -1,6 +1,447 @@
 [$Version]
 update_info=klipper-kconfigxt.upd:KlipperNoSpacesInKeyNames
 
+[Action_0]
+Automatic=true
+Description=RNE
+Number of commands=6
+Regexp=^0(18|28|36|37|41|45)[0-9]{3}[0-9xX][a-zA-Z]$
+
+[Action_0/Command_0]
+Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Recherche RTGI : %s' -e /bin/zsh -ic 'rtgi-search %s'
+Description=Recherche RTGI
+Enabled=true
+Icon=
+Output=0
+
+[Action_0/Command_1]
+Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Informations RTGI : %s' -e /bin/zsh -ic 'rtgi-info %s'
+Description=Informations RTGI
+Enabled=true
+Icon=
+Output=0
+
+[Action_0/Command_2]
+Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Inventaire : %s' -e /bin/zsh -ic 'inv-etab %s'
+Description=Inventaires des machines
+Enabled=true
+Icon=
+Output=0
+
+[Action_0/Command_3]
+Commandline[$e]=firefox 'http://nagiosmaster.giprecia.net/check_mk/view.py?view.py?is_host_scheduled_downtime_depth=-1&filled_in=filter&hst2=on&hst1=on&hst0=on&is_summary_host=-1&hstp=on&site=&opthost_group=&view_name=searchhost&host_check_command=&is_host_in_notification_period=-1&host_regex=%s'
+Description=Nagios
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_0/Command_4]
+Commandline[$e]=firefox 'https://rt.giprecia.fr/rt/Search/Simple.html?q=%s'
+Description=Interface RT
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_0/Command_5]
+Commandline[$e]=firefox 'https://rtgi.giprecia.fr/index.html?brechercher=1&erne=%s'
+Description=Web RTGI
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_1]
+Automatic=true
+Description=Ticket
+Number of commands=2
+Regexp=^(RT)?#?\\d{5,6}$
+
+[Action_1/Command_0]
+Commandline[$e]=firefox 'https://rt.giprecia.fr/rt/Ticket/Display.html?id=%s'
+Description=Interface RT
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_1/Command_1]
+Commandline[$e]=firefox 'http://dev.giprecia.fr/view?rql=%s'
+Description=Interface Forge
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_1/Command_2]
+Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Inventaire : %s' -e /bin/zsh -ic 'inv-etab %s'
+Description=Inventaires des machines
+Enabled=true
+Icon=
+Output=0
+
+[Action_1/Command_3]
+Commandline[$e]=firefox 'http://nagiosmaster.giprecia.net/check_mk/view.py?view_name=hosts&host=%s'
+Description=Nagios
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_1/Command_4]
+Commandline[$e]=firefox 'https://rt.giprecia.fr/rt/Search/Simple.html?q=%s'
+Description=Interface RT
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_1/Command_5]
+Commandline[$e]=firefox 'https://rtgi.giprecia.fr/index.html?brechercher=1&erne=%s'
+Description=Web RTGI
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_10]
+Automatic=true
+Description=Adresse MAC
+Number of commands=1
+Regexp=^[0-9a-fA-F]{2}[:-][0-9a-fA-F]{2}[:-][0-9a-fA-F]{2}[:-][0-9a-fA-F]{2}[:-][0-9a-fA-F]{2}[:-][0-9a-fA-F]{2}$
+
+[Action_10/Command_0]
+Commandline[$e]=firefox 'http://www.coffer.com/mac_find/?string=%s'
+Description=Informations constructeur
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_11]
+Automatic=true
+Description=IP CIDR
+Number of commands=1
+Regexp=^\\d+\\.\\d+\\.\\d+\\.\\d+/\\d+$
+
+[Action_11/Command_0]
+Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Adressage : %s' -e /bin/zsh -ic 'ipcalc %s'
+Description=Adressage
+Enabled=true
+Icon=
+Output=0
+
+[Action_12]
+Automatic=true
+Description=Timestamp
+Number of commands=1
+Regexp=^[0-9]{10}$
+
+[Action_12/Command_0]
+Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Timestamp : %s' -e /bin/zsh -ic 'timestamp-to-date %s'
+Description=Timestamp
+Enabled=true
+Icon=
+Output=0
+
+[Action_13]
+Automatic=true
+Description=Routeur
+Number of commands=1
+Regexp=^rca0(18|28|36|37|41|45)[0-9]{3}[0-9x][a-z]cpe\\d+$
+
+[Action_13/Command_0]
+Commandline[$e]=konsole --hide-tabbar -p tabtitle='Bande passante SNMP : %s' -e /bin/zsh -ic 'snmp-bandwidth %s'
+Description=Bande passante
+Enabled=true
+Icon=
+Output=0
+
+[Action_14]
+Automatic=true
+Description=IP Masque/Joker
+Number of commands=1
+Regexp=^\\d+\\.\\d+\\.\\d+\\.\\d+\\s\\d+\\.\\d+\\.\\d+\\.\\d+$
+
+[Action_14/Command_0]
+Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Adressage : %s' -e /bin/zsh -ic 'ipcalc %s'
+Description=Adressage
+Enabled=true
+Icon=
+Output=0
+
+[Action_15]
+Automatic=true
+Description=Switch
+Number of commands=1
+Regexp=^rca0(18|28|36|37|41|45)[0-9]{3}[0-9x][a-z](sw|wfi)\\d+$
+
+[Action_15/Command_0]
+Commandline[$e]=konsole -e /bin/zsh -ic 'telnet %s'
+Description=Telnet
+Enabled=true
+Icon=
+Output=0
+
+[Action_16]
+Automatic=true
+Description=Plage IP
+Number of commands=1
+Regexp=^\\d+\\.\\d+\\.\\d+\\.\\d+ - \\d+\\.\\d+\\.\\d+\\.\\d+$
+
+[Action_16/Command_0]
+Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Adressage : %s' -e /bin/zsh -ic 'ipcalc %s'
+Description=Adressage
+Enabled=true
+Icon=
+Output=0
+
+[Action_17]
+Automatic=true
+Description=Adresse MAC
+Number of commands=1
+Regexp=^[0-9a-fA-F]{12}$
+
+[Action_17/Command_0]
+Commandline[$e]=firefox 'http://www.coffer.com/mac_find/?string=%s'
+Description=Informations constructeur
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_18]
+Automatic=true
+Description=Opsi
+Number of commands=2
+Regexp=^[oO]psi0(18|28|36|37|41|45)[0-9]{3}[0-9x][a-z]$
+
+[Action_18/Command_0]
+Commandline[$e]=configed -h %s -u gip.prof -p testgip
+Description=Console Java
+Enabled=true
+Icon=
+Output=0
+
+[Action_18/Command_1]
+Commandline[$e]=firefox 'http://%s.etab.giprecia.org'
+Description=OWM
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_19]
+Automatic=true
+Description=Commun
+Number of commands=2
+Regexp=^\\w+0(18|28|36|37|41|45)[0-9]{3}[\\w]{2}\\w*$
+
+[Action_19/Command_0]
+Commandline[$e]=firefox 'http://nagiosmaster.giprecia.net/check_mk/view.py?view_name=host&host=%s'
+Description=Nagios
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_19/Command_1]
+Commandline[$e]=firefox 'http://nconf.giprecia.net/overview.php?class=host&filter2=%s&os=&search=Search'
+Description=Nconf
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_2]
+Automatic=true
+Description=Paquet escolan
+Number of commands=3
+Regexp=^escolan-[\\w-]+$
+
+[Action_2/Command_0]
+Commandline[$e]=firefox 'http://mercurial.giprecia.fr/%s'
+Description=Mercurial
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_2/Command_1]
+Commandline[$e]=firefox 'http://dev.giprecia.fr/project/%s'
+Description=Forge
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_2/Command_2]
+Commandline[$e]=dolphin ~/Developpement/mercurial/%s
+Description=Dossier local
+Enabled=true
+Icon=
+Output=0
+
+[Action_3]
+Automatic=true
+Description=loches
+Number of commands=1
+Regexp=^[lL]oches0(18|28|36|37|41|45)[0-9]{3}[0-9x][a-z]$
+
+[Action_3/Command_0]
+Commandline[$e]=firefox 'https://%s:10443'
+Description=Interface PfSense
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_3/Command_1]
+Commandline[$e]=firefox 'http://dev.giprecia.fr/project/%s'
+Description=Forge
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_3/Command_2]
+Commandline[$e]=dolphin ~/Developpement/mercurial/%s
+Description=Dossier local
+Enabled=true
+Icon=
+Output=0
+
+[Action_4]
+Automatic=true
+Description=Adresse MAC
+Number of commands=1
+Regexp=^[0-9a-fA-F]{4}[-\\.][0-9a-fA-F]{4}[-\\.][0-9a-fA-F]{4}$
+
+[Action_4/Command_0]
+Commandline[$e]=firefox 'http://www.coffer.com/mac_find/?string=%s'
+Description=Informations constructeur
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_5]
+Automatic=true
+Description=Machine (IP)
+Number of commands=3
+Regexp=^(172|10)\\.\\d+\\.\\d+\\.\\d+$
+
+[Action_5/Command_0]
+Commandline[$e]=konsole --noclose -e /bin/zsh -ic 'ssh-etab %s'\s
+Description=Connexion SSH (étab)
+Enabled=true
+Icon=
+Output=0
+
+[Action_5/Command_1]
+Commandline[$e]=konsole --noclose -e /bin/zsh -ic 'ssh %s'\s
+Description=Connexion SSH
+Enabled=true
+Icon=
+Output=0
+
+[Action_5/Command_2]
+Commandline[$e]=konsole --noclose -e /bin/zsh -ic 'telnet %s'\s
+Description=Telnet
+Enabled=true
+Icon=
+Output=0
+
+[Action_6]
+Automatic=true
+Description=amon
+Number of commands=1
+Regexp=^[aA]mon0(18|28|36|37|41|45)[0-9]{3}[0-9x][a-z]$
+
+[Action_6/Command_0]
+Commandline[$e]=firefox 'http://%s:8090'
+Description=Interface Amon
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_6/Command_1]
+Commandline[$e]=konsole --noclose -e /bin/zsh -ic 'ssh %s'\s
+Description=Connexion SSH
+Enabled=true
+Icon=
+Output=0
+
+[Action_6/Command_2]
+Commandline[$e]=konsole --noclose -e /bin/zsh -ic 'telnet %s'\s
+Description=Telnet
+Enabled=true
+Icon=
+Output=0
+
+[Action_7]
+Automatic=true
+Description=ipr
+Number of commands=1
+Regexp=^ipr0(18|28|36|37|41|45)[0-9]{3}[0-9x][a-z]$
+
+[Action_7/Command_0]
+Commandline[$e]=firefox 'http://%s.etab.giprecia.org:4014'
+Description=Interface ipr
+Enabled=true
+Icon=firefox
+Output=0
+
+[Action_8]
+Automatic=true
+Description=KVM
+Number of commands=1
+Regexp=^([wW]inxp|[iI]ndre|[cC]her|[lL]oir|[lL]oiret)0(18|28|36|37|41|45)[0-9]{3}[0-9x][a-z]$
+
+[Action_8/Command_0]
+Commandline[$e]=krdc rdp://%s
+Description=Session RDP
+Enabled=true
+Icon=krdc
+Output=0
+
+[Action_9]
+Automatic=true
+Description=proxy
+Number of commands=3
+Regexp=^[pP]roxy0(18|28|36|37|41|45)[0-9]{3}[0-9x][a-z]$
+
+[Action_9/Command_0]
+Commandline[$e]=$HOME/.bin/set-proxy %s; firefox -P proxy --new-instance http://www.monip.org
+Description=Tester le proxy
+Enabled=true
+Icon=
+Output=0
+
+[Action_9/Command_1]
+Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Test de debit de %s' -e /bin/zsh -ic 'w3m -o use_proxy=true -o http_proxy=http://%s:8080 http://test-debit.free.fr'
+Description=Tester le debit
+Enabled=true
+Icon=
+Output=0
+
+[Action_9/Command_2]
+Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Test du filtrage de %s' -e /bin/zsh -ic 'w3m -o use_proxy=true -o http_proxy=http://%s:8080 http://youporn.com'
+Description=Tester le filtrage
+Enabled=true
+Icon=
+Output=0
+
+[Actions]
+EnableMagicMimeActions=false
+ReplayActionInHistory=true
+
+[ActionsWidget]
+ColumnState=AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA48AAAACAQAAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAACAAACzwAAAAEAAAAAAAAAwAAAAAEAAAAA
+
+[ConfigDialog]
+Height 1080=746
+Height 900=703
+Width 1600=1177
+Width 1920=1066
+
+[EditActionDialog]
+ColumnState=AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABRQAAAADAAEAAQAAAAAAAAAAAAAAAGT/////AAAAAQAAAAAAAAADAAAC6wAAAAEAAAAAAAAArAAAAAEAAAAAAAABfQAAAAEAAAAA
+Height 1080=429
+Width 1920=1347
+
 [General]
-Number of Actions=0
+AutoStart=true
+MaxClipItems=30
+NoActionsForWM_CLASS=
+Number of Actions=20
+SyncClipboards=true
+URLGrabberEnabled=true
 Version=0.9.7
+
+[Notification Messages]
+StartAutomatically=true
+really_clear_history=true
