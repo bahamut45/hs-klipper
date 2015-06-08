@@ -11,21 +11,21 @@ Regexp=^0(18|28|36|37|41|45)[0-9]{3}[0-9xX][a-zA-Z]$
 Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Recherche RTGI : %s' -e /bin/zsh -ic 'rtgi-search %s'
 Description=Recherche RTGI
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_0/Command_1]
 Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Informations RTGI : %s' -e /bin/zsh -ic 'rtgi-info %s'
 Description=Informations RTGI
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_0/Command_2]
 Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Inventaire : %s' -e /bin/zsh -ic 'inv-etab %s'
 Description=Inventaires des machines
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_0/Command_3]
@@ -120,7 +120,7 @@ Regexp=^\\d+\\.\\d+\\.\\d+\\.\\d+/\\d+$
 Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Adressage : %s' -e /bin/zsh -ic 'ipcalc %s'
 Description=Adressage
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_12]
@@ -133,7 +133,7 @@ Regexp=^[0-9]{10}$
 Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Timestamp : %s' -e /bin/zsh -ic 'timestamp-to-date %s'
 Description=Timestamp
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_13]
@@ -146,7 +146,7 @@ Regexp=^rca0(18|28|36|37|41|45)[0-9]{3}[0-9x][a-z]cpe\\d+$
 Commandline[$e]=konsole --hide-tabbar -p tabtitle='Bande passante SNMP : %s' -e /bin/zsh -ic 'snmp-bandwidth %s'
 Description=Bande passante
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_14]
@@ -159,7 +159,7 @@ Regexp=^\\d+\\.\\d+\\.\\d+\\.\\d+\\s\\d+\\.\\d+\\.\\d+\\.\\d+$
 Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Adressage : %s' -e /bin/zsh -ic 'ipcalc %s'
 Description=Adressage
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_15]
@@ -172,7 +172,7 @@ Regexp=^rca0(18|28|36|37|41|45)[0-9]{3}[0-9x][a-z](sw|wfi)\\d+$
 Commandline[$e]=konsole -e /bin/zsh -ic 'telnet %s'
 Description=Telnet
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_16]
@@ -185,7 +185,7 @@ Regexp=^\\d+\\.\\d+\\.\\d+\\.\\d+ - \\d+\\.\\d+\\.\\d+\\.\\d+$
 Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Adressage : %s' -e /bin/zsh -ic 'ipcalc %s'
 Description=Adressage
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_17]
@@ -208,7 +208,7 @@ Number of commands=2
 Regexp=^[oO]psi0(18|28|36|37|41|45)[0-9]{3}[0-9x][a-z]$
 
 [Action_18/Command_0]
-Commandline[$e]=configed -h %s -u gip.prof -p testgip
+Commandline[$e]="/home/njoubert/Google Drive/bin/"configed -h %s -u gip.prof -p testgip -d "~/.configed"
 Description=Console Java
 Enabled=true
 Icon=
@@ -219,6 +219,13 @@ Commandline[$e]=firefox 'http://%s.etab.giprecia.org'
 Description=OWM
 Enabled=true
 Icon=firefox
+Output=0
+
+[Action_18/Command_2]
+Commandline[$e]=konsole --hide-tabbar -p tabtitle='Opsi Java : %s' -e /bin/zsh -ic 'configed -h %s -u gip.prof -p testgip -d "/home/njoubert/.configed"'
+Description=Java
+Enabled=true
+Icon=konsole
 Output=0
 
 [Action_19]
@@ -318,21 +325,21 @@ Regexp=^(172|10)\\.\\d+\\.\\d+\\.\\d+$
 Commandline[$e]=konsole --noclose -e /bin/zsh -ic 'ssh-etab %s'\s
 Description=Connexion SSH (étab)
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_5/Command_1]
 Commandline[$e]=konsole --noclose -e /bin/zsh -ic 'ssh %s'\s
 Description=Connexion SSH
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_5/Command_2]
 Commandline[$e]=konsole --noclose -e /bin/zsh -ic 'telnet %s'\s
 Description=Telnet
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_6]
@@ -405,19 +412,19 @@ Output=0
 Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Test de debit de %s' -e /bin/zsh -ic 'w3m -o use_proxy=true -o http_proxy=http://%s:8080 http://test-debit.free.fr'
 Description=Tester le debit
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Action_9/Command_2]
 Commandline[$e]=konsole --hide-tabbar --noclose -p tabtitle='Test du filtrage de %s' -e /bin/zsh -ic 'w3m -o use_proxy=true -o http_proxy=http://%s:8080 http://youporn.com'
 Description=Tester le filtrage
 Enabled=true
-Icon=
+Icon=konsole
 Output=0
 
 [Actions]
 EnableMagicMimeActions=false
-ReplayActionInHistory=true
+ReplayActionInHistory=false
 
 [ActionsWidget]
 ColumnState=AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA48AAAACAQAAAQAAAAAAAAAAAAAAAGT/////AAAAgQAAAAAAAAACAAACzwAAAAEAAAAAAAAAwAAAAAEAAAAA
@@ -439,6 +446,7 @@ MaxClipItems=30
 NoActionsForWM_CLASS=
 Number of Actions=20
 SyncClipboards=true
+TimeoutForActionPopups=2
 URLGrabberEnabled=true
 Version=0.9.7
 
